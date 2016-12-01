@@ -17,8 +17,12 @@ class SVGala(val width: Int, val height: Int) {
   // methods which add objects to the display
 
   // add a rectangle
-  def addRect(x: Int, y: Int, width: Int, height: Int, fill: String = "0X0000FF", strokeWidth: String = "1", stroke: String = "0x000000") {
-    displayList += s"""<rect x="$x" y="${flipY(y, height)}" width="$width" height="$height" fill="$fill" stroke-width="$strokeWidth" stroke="$stroke"/>"""
+  def addRect(x: Int, y: Int, width: Int, height: Int,
+    fill: String = "0X0000FF", strokeWidth: String = "1", stroke: String = "0x000000") {
+
+    val svg1 = s"""<rect x="$x" y="${flipY(y, height)}" width="$width" height="$height" """
+    val svg2 = svg1 + s"""fill="$fill" stroke-width="$strokeWidth" stroke="$stroke"/>"""
+    displayList += svg2
   }
 
   // output
