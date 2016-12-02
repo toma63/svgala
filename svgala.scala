@@ -40,7 +40,7 @@ class SVGala(val width: Int, val height: Int) {
     bw.newLine
 
     // add the display objects
-    displayList.foreach((obj: String) => bw.write(obj + "\n"))
+    displayList.foreach(obj => bw.write(obj + "\n"))
 
     // close the svg doc
     bw.newLine
