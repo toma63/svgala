@@ -38,11 +38,23 @@ class SVGala(val width: Int, val height: Int) {
     addPresentationAttr(svg1, attr, defaultAttr)
   }
 
+  // Create an object tag for a circle
+  def makeCircle(cx: Int, cy: Int, r: Int, attr:Seq[String]): String = {
+    val svg1 = s"""<circle cx="$cx" cy="${flipY(cy, 0)}" r="$r" """
+    val defaultAttr = Array("""fill="0X0000FF"""", """stroke-width="1"""", """stroke="0x000000"""")
+    addPresentationAttr(svg1, attr, defaultAttr)
+  }
+
   // methods which add objects to the display
 
   // add a rectangle
   def addRect(x: Int, y: Int, width: Int, height: Int, attr: String*) {
     displayList += makeRect(x, y, width, height, attr)
+  }
+
+  // add a circle
+  def addCircle(cx: Int, cy: Int, r: Int, attr: String*) {
+    displayList += makeCircle(cx, cy, r, attr)
   }
 
   // output
