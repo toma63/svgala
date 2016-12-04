@@ -45,6 +45,13 @@ class SVGala(val width: Int, val height: Int) {
     addPresentationAttr(svg1, attr, defaultAttr)
   }
 
+  // Create an object tag for an ellipse
+  def makeEllipse(cx: Int, cy: Int, rx: Int, ry: Int, attr:Seq[String]): String = {
+    val svg1 = s"""<ellipse cx="$cx" cy="${flipY(cy, 0)}" rx="$rx" ry="$ry" """
+    val defaultAttr = Array("""fill="0X0000FF"""", """stroke-width="1"""", """stroke="0x000000"""")
+    addPresentationAttr(svg1, attr, defaultAttr)
+  }
+
   // methods which add objects to the display
 
   // add a rectangle
@@ -55,6 +62,11 @@ class SVGala(val width: Int, val height: Int) {
   // add a circle
   def addCircle(cx: Int, cy: Int, r: Int, attr: String*) {
     displayList += makeCircle(cx, cy, r, attr)
+  }
+
+  // add an ellipse
+  def addEllipse(cx: Int, cy: Int, rx: Int, ry: Int, attr: String*) {
+    displayList += makeEllipse(cx, cy, rx, ry, attr)
   }
 
   // output
